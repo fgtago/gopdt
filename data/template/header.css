@@ -1,0 +1,22 @@
+#pageheader {
+	margin: 0;
+	padding: 10px 10px 0px 10px;
+	display: flex;
+	justify-content: space-between;
+}
+
+#pageheader-left {
+	width: 30px;
+	display: flex;
+	align-items: center;
+}
+
+#pageheader-center {
+	flex-grow: 1;
+}
+
+#pageheader-right {
+	display: flex;
+	align-items: center;
+	justify-content: right;
+}

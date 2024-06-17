@@ -13,6 +13,8 @@
 		<link rel="manifest" href="manifest.json">
 		<link rel="icon" type="image/x-icon" href="favicon.ico">
 		<link rel="stylesheet" href="/template/layout.css">
+		<link rel="stylesheet" href="/template/header.css">
+		<link rel="stylesheet" href="/template/footer.css">
 
 		{{block "pagestyle" .}}{{end}} 
 
@@ -20,10 +22,8 @@
 	<body>
 
 		<!-- Begin: Page Header -->
-		<div id="pageheader"> 
 		{{block "pageheader" .}}
 		{{end}}
-		</div>
 		<!-- End: Header -->
 
 		<!-- Begin: Content -->
@@ -34,10 +34,8 @@
 		<!-- End: Content -->
 
 		<!-- Begin: Page Footer -->
-		<div id="pagefooter"> 
 		{{block "pagefooter" .}}
 		{{end}}
-		</div>
 		<!-- End: Footer -->
 
 	</body>
