@@ -1,0 +1,13 @@
+{{define "pagemodule"}}
+<script>
+window.addEventListener("load", async (event) => {
+
+})
+</script>
+<script type="module">
+	import * as ui from '/asset/data/pages/home/home.mjs'
+	window.$ui = ui
+</script>
+{{end}}	
+
+

@@ -1,15 +1,21 @@
 {{template "layoutdasar" .}}
 
 {{define "pagestyle"}}
-		<link rel="stylesheet" href="/asset/data/pages/home/home.css">
+	<link rel="stylesheet" href="/asset/data/pages/home/home.css">
+{{end}}
+
+
+{{define "pagemodule"}}
+	<script type="module">
+		import * as ui from '/asset/data/pages/home/home.mjs'
+		window.$ui = ui
+	</script>
 {{end}}
 
 
 {{define "pagecontent"}}
 
 	ini content home<br>
-
-
 
 {{end}}
 
