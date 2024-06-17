@@ -1,0 +1,12 @@
+name: home  
+title: Home
+
+
+device:
+  mobile:
+    - home.html
+  tablet:
+    - home.html
+  desktop:
+    - home.html
+        

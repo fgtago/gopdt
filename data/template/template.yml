@@ -1,0 +1,14 @@
+device:
+  mobile:
+    - layout.html
+    - header.html
+    - footer.html
+  tablet:
+    - layout.html
+    - header.html
+    - footer.html
+  desktop:
+    - layout.html
+    - header.html
+    - footer.html
+        

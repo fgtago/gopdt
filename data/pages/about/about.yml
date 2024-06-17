@@ -1,0 +1,11 @@
+name: about
+title: About
+
+device:
+  mobile:
+    - about.html
+  tablet:
+    - about.html
+  desktop:
+    - about.html
+        
