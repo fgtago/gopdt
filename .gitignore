@@ -25,3 +25,4 @@ go.work.sum
 config.yml
 vendor
 .DS_Store
+gopdt-server.bin
