@@ -3,8 +3,8 @@ package main
 import (
 	"flag"
 	"fmt"
+	"os"
 	"path/filepath"
-	"runtime"
 
 	"github.com/fgtago/fgweb"
 	"github.com/go-chi/chi/v5"
@@ -21,9 +21,11 @@ func main() {
 	flag.Parse()
 
 	// set root direktori ke current working direktori
-	// rootDir, err := os.Getwd()
-	_, filename, _, _ := runtime.Caller(0)
-	rootDir := filepath.Dir(filename)
+	rootDir, err := os.Getwd()
+	if err != nil {
+		// ada error saat inisiasi webservice, halt
+		panic(err.Error())
+	}
 
 	// ambil file konfigurasi
 	cfgpath := filepath.Join(rootDir, cfgFileName)

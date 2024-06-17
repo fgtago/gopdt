@@ -3,12 +3,15 @@ device:
     - layout.html
     - header.html
     - footer.html
+    - mainmenu.html
   tablet:
     - layout.html
     - header.html
     - footer.html
+    - mainmenu.html
   desktop:
     - layout.html
     - header.html
     - footer.html
+    - mainmenu.html
         
