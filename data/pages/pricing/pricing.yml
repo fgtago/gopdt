@@ -1,0 +1,12 @@
+name: pricing  
+title: Pricing Label
+
+
+device:
+  mobile:
+    - pricing.html
+  tablet:
+    - pricing.html
+  desktop:
+    - pricing.html
+        
