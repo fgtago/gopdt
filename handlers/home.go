@@ -8,8 +8,8 @@ import (
 	"github.com/fgtago/fgweb/defaulthandlers"
 )
 
-func (hnd *Handler) Home(w http.ResponseWriter, r *http.Request) {
-	ws := hnd.Webservice
+func (hdr *Handler) Home(w http.ResponseWriter, r *http.Request) {
+	ws := hdr.Webservice
 	ctx := r.Context()
 	pv := ctx.Value(appsmodel.PageVariableKeyName).(*appsmodel.PageVariable)
 	pv.PageName = "home"

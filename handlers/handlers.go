@@ -6,11 +6,11 @@ type Handler struct {
 	Webservice *appsmodel.Webservice
 }
 
-var hnd *Handler
+var hdr *Handler
 
 func New(ws *appsmodel.Webservice) *Handler {
-	hnd = &Handler{
+	hdr = &Handler{
 		Webservice: ws,
 	}
-	return hnd
+	return hdr
 }

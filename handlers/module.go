@@ -8,7 +8,7 @@ import (
 	"github.com/go-chi/chi/v5"
 )
 
-func (hnd *Handler) Module(w http.ResponseWriter, r *http.Request) {
+func (hdr *Handler) Module(w http.ResponseWriter, r *http.Request) {
 	modulename := chi.URLParam(r, "modulename")
 
 	ctx := r.Context()

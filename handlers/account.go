@@ -8,7 +8,7 @@ import (
 	"github.com/fgtago/fgweb/defaulthandlers"
 )
 
-func (hnd *Handler) Account(w http.ResponseWriter, r *http.Request) {
+func (hdr *Handler) Account(w http.ResponseWriter, r *http.Request) {
 	ws := appsmodel.GetWebservice()
 	ctx := r.Context()
 	pv := ctx.Value(appsmodel.PageVariableKeyName).(*appsmodel.PageVariable)
