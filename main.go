@@ -6,6 +6,7 @@ import (
 	"os"
 	"path/filepath"
 
+	"github.com/alexedwards/scs/v2"
 	"github.com/fgtago/fgweb"
 	"github.com/go-chi/chi/v5"
 )
@@ -36,6 +37,11 @@ func main() {
 		// ada error saat inisiasi webservice, halt
 		panic(err.Error())
 	}
+
+	// create session manager
+	sessmgr := scs.New()
+	fmt.Println(sessmgr)
+	ws.SessMgr = sessmgr
 
 	// info: memulai service
 	port := ws.Configuration.Port
