@@ -17,6 +17,7 @@
 
 	<h1>Login</h1>
 	<form method="post" action="/user/dologin">
+		<input type="hidden" name="csrf_token" value="{{.CsrfToken}}">
 		<div class="form-group">
 			<label for="email">Email</label>
 			<input type="text" name="email" id="email" autocomplete="off" validation="email">
