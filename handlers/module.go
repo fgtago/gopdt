@@ -14,6 +14,7 @@ func (hdr *Handler) Module(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
 	pv := ctx.Value(appsmodel.PageVariableKeyName).(*appsmodel.PageVariable)
 	pv.PageName = modulename
+	pv.Form = appsmodel.NewForm(nil)
 
 	defaulthandlers.SimplePageHandler(pv, w, r)
 }
