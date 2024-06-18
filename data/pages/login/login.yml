@@ -1,0 +1,13 @@
+name: login  
+title: Login
+auth: false
+
+
+device:
+  mobile:
+    - login.html
+  tablet:
+    - login.html
+  desktop:
+    - login.html
+        
