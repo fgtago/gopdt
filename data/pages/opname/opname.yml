@@ -1,6 +1,6 @@
 name: opname  
 title: Stock Opname
-
+auth: true
 
 device:
   mobile:

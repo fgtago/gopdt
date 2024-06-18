@@ -6,12 +6,12 @@ github.com/agungdhewe/dwtpl v1.2.4 h1:a1aSrDQIOKHTPqUDu1t8wesyTiinPbux+0qZ2y9EqX
 github.com/agungdhewe/dwtpl v1.2.4/go.mod h1:+KLvD8JKVkfT0yPquajigxuv0UR8gmjLnoEi/7+RAJc=
 github.com/alexedwards/scs/v2 v2.8.0 h1:h31yUYoycPuL0zt14c0gd+oqxfRwIj6SOjHdKRZxhEw=
 github.com/alexedwards/scs/v2 v2.8.0/go.mod h1:ToaROZxyKukJKT/xLcVQAChi5k6+Pn1Gvmdl7h3RRj8=
-github.com/fgtago/fgweb v1.2.1 h1:O3d+GNiTgD2eKVh16w9jQcC3ddGEPhQv6ldf+sRULZc=
-github.com/fgtago/fgweb v1.2.1/go.mod h1:YgeG+PHSSZY6U4w2xGVpLZWNBP3ozWtFQdXk6wtUwfo=
 github.com/go-chi/chi/v5 v5.0.12 h1:9euLV5sTrTNTRUU9POmDUvfxyj6LAABLUcEWO+JJb4s=
 github.com/go-chi/chi/v5 v5.0.12/go.mod h1:DslCQbL2OYiznFReuXYUmQ2hGd1aDpCnlMNITLSKoi8=
 github.com/houseme/mobiledetect v1.2.1 h1:Zb5QZMwiyHMJH2NPsyQjM4YHpZ05AtSoBo46KPBvTdc=
 github.com/houseme/mobiledetect v1.2.1/go.mod h1:QNYrZBISjfi0UNH5/LjHwWAsP3mbka4Ti0VaSisLdtY=
+github.com/justinas/nosurf v1.1.1 h1:92Aw44hjSK4MxJeMSyDa7jwuI9GR2J/JCQiaKvXXSlk=
+github.com/justinas/nosurf v1.1.1/go.mod h1:ALpWdSbuNGy2lZWtyXdjkYv4edL23oSEgfBT1gPJ5BQ=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405 h1:yhCVgyC4o1eVCa2tZl7eS0r+SDo693bJlVdllGtEeKM=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
 gopkg.in/yaml.v3 v3.0.1 h1:fxVm/GzAzEWqLHuvctI91KS9hhNmmWOoWu0XTYJS7CA=
