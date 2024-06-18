@@ -2,6 +2,7 @@ port: 8700
 
 favicon: "favicon.ico"
 title: "PDT"
+showservererror: true
 
 database:
   server: "<your database server>"

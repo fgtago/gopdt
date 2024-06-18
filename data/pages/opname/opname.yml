@@ -1,0 +1,12 @@
+name: opname  
+title: Stock Opname
+
+
+device:
+  mobile:
+    - opname.html
+  tablet:
+    - opname.html
+  desktop:
+    - opname.html
+        

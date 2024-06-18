@@ -1,0 +1,20 @@
+{{template "layoutdasar" .}}
+
+
+{{define "pagestyle"}}
+	<link rel="stylesheet" href="/asset/data/pages/account/account.css">
+{{end}}
+
+{{define "pagemodule"}}
+	<script type="module">
+		import * as ui from '/asset/data/pages/account/account.mjs'
+		window.$ui = ui
+	</script>
+{{end}}
+
+{{define "pagecontent"}}
+
+	My Account<br>
+
+{{end}}
+

@@ -1,0 +1,12 @@
+name: send  
+title: Send Items
+
+
+device:
+  mobile:
+    - send.html
+  tablet:
+    - send.html
+  desktop:
+    - send.html
+        

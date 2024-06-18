@@ -15,6 +15,8 @@ func Router(mux *chi.Mux) error {
 	fgweb.Get(mux, "/manifest.json", handlers.Manifest)
 
 	fgweb.Get(mux, "/", handlers.Home)
+	fgweb.Get(mux, "/module/{modulename}", handlers.Module)
+	fgweb.Get(mux, "/account", handlers.Account)
 
 	return nil
 }

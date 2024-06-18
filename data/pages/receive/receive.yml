@@ -1,0 +1,12 @@
+name: receive  
+title: Receive Items
+
+
+device:
+  mobile:
+    - receive.html
+  tablet:
+    - receive.html
+  desktop:
+    - receive.html
+        

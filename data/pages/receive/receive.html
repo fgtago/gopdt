@@ -1,0 +1,20 @@
+{{template "layoutdasar" .}}
+
+
+{{define "pagestyle"}}
+	<link rel="stylesheet" href="/asset/data/pages/receive/receive.css">
+{{end}}
+
+{{define "pagemodule"}}
+	<script type="module">
+		import * as ui from '/asset/data/pages/receive/receive.mjs'
+		window.$ui = ui
+	</script>
+{{end}}
+
+{{define "pagecontent"}}
+
+	Receive Items<br>
+
+{{end}}
+
