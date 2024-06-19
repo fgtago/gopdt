@@ -25,10 +25,23 @@ func (hdr *Handler) DoLogin(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// email := r.Form.Get("email")
-	// password := r.Form.Get("password")
+	email := r.Form.Get("email")
+	password := r.Form.Get("password")
 
-	pv.Form = appsmodel.NewForm(r.PostForm)
-	pv.PageName = "login"
-	defaulthandlers.SimplePageHandler(pv, w, r)
+	var authenticated bool
+	authenticated = false
+	if email == "agung" && password == "rahasia" {
+		authenticated = true
+	}
+
+	if !authenticated {
+		pv.Form = appsmodel.NewForm(r.PostForm)
+		pv.PageName = "login"
+		defaulthandlers.SimplePageHandler(pv, w, r)
+		return
+	}
+
+	// login berhasil, redirect ke halaman yang di refer sebelumnya
+	http.Redirect(w, r, "/", http.StatusSeeOther)
+
 }
