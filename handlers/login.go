@@ -8,14 +8,20 @@ import (
 	"github.com/fgtago/fgweb/defaulthandlers"
 )
 
+type LoginData struct {
+	Email    string
+	Password string
+	Remember bool
+}
+
 func (hdr *Handler) Login(w http.ResponseWriter, r *http.Request) {
 	ws := hdr.Webservice
-	hdr.Webservice.Session.RenewToken(r.Context())
 	ctx := r.Context()
 	pv := ctx.Value(appsmodel.PageVariableKeyName).(*appsmodel.PageVariable)
 
 	var showloginpage = false
 	if r.Method == "POST" {
+		hdr.Webservice.Session.RenewToken(r.Context())
 		err := r.ParseForm()
 		if err != nil {
 			if ws.ShowServerError {
@@ -27,12 +33,17 @@ func (hdr *Handler) Login(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
-		email := r.Form.Get("email")
-		password := r.Form.Get("password")
+		data := LoginData{
+			Email:    r.Form.Get("email"),
+			Password: r.Form.Get("password"),
+		}
+
+		form := appsmodel.NewForm(r.PostForm)
+		form.Require("email", "password")
 
 		var authenticated bool
 		authenticated = false
-		if email == "agung" && password == "rahasia" {
+		if data.Email == "agung" && data.Password == "rahasia" {
 			authenticated = true
 		}
 
