@@ -17,7 +17,11 @@
 		<img src="/asset/data/images/logo-135x40.svg" width="135" height="40">
 	</div>
 	<div id="pageheader-right">
-		<a href="/module/login">login</a>
+		{{if .IsAuthenticated}}
+			{{.UserNickName}}
+		{{else}}
+			<a href="/user/login">login</a>
+		{{end}}
 	</div>
 </div>
 {{end}}

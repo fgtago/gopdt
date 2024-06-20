@@ -1,5 +1,6 @@
 name: account  
 title: My Account
+auth: true
 
 
 device:

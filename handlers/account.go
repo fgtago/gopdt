@@ -9,13 +9,14 @@ import (
 )
 
 func (hdr *Handler) Account(w http.ResponseWriter, r *http.Request) {
-	ws := appsmodel.GetWebservice()
 	ctx := r.Context()
 	pv := ctx.Value(appsmodel.PageVariableKeyName).(*appsmodel.PageVariable)
 	pv.PageName = "account"
+	pv.Request = r
+	pv.Response = w
+	pv.Use(hdr.LoginCheck)
 
-	username := ws.Session.GetString(r.Context(), "username")
-	fmt.Println("get username:", username)
+	fmt.Println("get username:", pv.UserNickName)
 
 	defaulthandlers.SimplePageHandler(pv, w, r)
 

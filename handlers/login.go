@@ -19,7 +19,7 @@ func (hdr *Handler) Login(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
 	pv := ctx.Value(appsmodel.PageVariableKeyName).(*appsmodel.PageVariable)
 
-	var showloginpage = false
+	var pagename = "login"
 	if r.Method == "POST" {
 		hdr.Webservice.Session.RenewToken(r.Context())
 		err := r.ParseForm()
@@ -39,12 +39,26 @@ func (hdr *Handler) Login(w http.ResponseWriter, r *http.Request) {
 		}
 
 		form := appsmodel.NewForm(r.PostForm)
-		form.Require("email", "password")
+		form.Requires("email", "password")
+		if !form.Valid() {
+			pv.Form = form
+			pv.Data = &data
+			pv.PageName = pagename
+			defaulthandlers.SimplePageHandler(pv, w, r)
+			return
+		}
 
 		var authenticated bool
 		authenticated = false
 		if data.Email == "agung" && data.Password == "rahasia" {
 			authenticated = true
+
+			// set session
+			ws.Session.Put(r.Context(), string(appsmodel.IsAuthenticatedKeyName), true)
+			ws.Session.Put(r.Context(), string(appsmodel.UserIdKeyName), "xxxx")
+			ws.Session.Put(r.Context(), string(appsmodel.UserNickNameKeyName), "agung")
+			ws.Session.Put(r.Context(), string(appsmodel.UserFullNameKeyName), "Agung Nugroho")
+
 		}
 
 		if authenticated {
@@ -52,16 +66,18 @@ func (hdr *Handler) Login(w http.ResponseWriter, r *http.Request) {
 			http.Redirect(w, r, "/", http.StatusSeeOther)
 			return
 		} else {
-			showloginpage = true
+			form.Errors.Add("login", "email atau password salah")
+			pv.Form = form
+			pv.Data = &data
+			pv.PageName = pagename
+			defaulthandlers.SimplePageHandler(pv, w, r)
+			return
 		}
 
 	} else {
-		showloginpage = true
-	}
-
-	if showloginpage {
-		pv.Form = appsmodel.NewForm(r.PostForm)
-		pv.PageName = "login"
+		pv.Data = &LoginData{}
+		pv.Form = appsmodel.NewForm(nil)
+		pv.PageName = pagename
 		defaulthandlers.SimplePageHandler(pv, w, r)
 	}
 
