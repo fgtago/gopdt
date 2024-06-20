@@ -36,6 +36,7 @@ func (hdr *Handler) Login(w http.ResponseWriter, r *http.Request) {
 		data := LoginData{
 			Email:    r.Form.Get("email"),
 			Password: r.Form.Get("password"),
+			Remember: r.Form.Get("rememberme") == "on",
 		}
 
 		form := appsmodel.NewForm(r.PostForm)
@@ -54,6 +55,7 @@ func (hdr *Handler) Login(w http.ResponseWriter, r *http.Request) {
 			authenticated = true
 
 			// set session
+			ws.Session.RememberMe(r.Context(), data.Remember)
 			ws.Session.Put(r.Context(), string(appsmodel.IsAuthenticatedKeyName), true)
 			ws.Session.Put(r.Context(), string(appsmodel.UserIdKeyName), "xxxx")
 			ws.Session.Put(r.Context(), string(appsmodel.UserNickNameKeyName), "agung")
@@ -75,6 +77,14 @@ func (hdr *Handler) Login(w http.ResponseWriter, r *http.Request) {
 		}
 
 	} else {
+
+		// jika sudah login, redirect ke halaman home
+		authenticated := ws.Session.GetBool(ctx, string(appsmodel.IsAuthenticatedKeyName))
+		if authenticated {
+			http.Redirect(w, r, "/", http.StatusSeeOther)
+			return
+		}
+
 		pv.Data = &LoginData{}
 		pv.Form = appsmodel.NewForm(nil)
 		pv.PageName = pagename

@@ -26,5 +26,11 @@ func Router(mux *chi.Mux) error {
 	fgweb.Get(mux, "/user/login", hnd.Login)
 	fgweb.Post(mux, "/user/login", hnd.Login)
 
+	// fgweb.Get(mux, "/{any:.*}", func(w http.ResponseWriter, r *http.Request) {
+	// 	param := chi.URLParam(r, "any")
+	// 	fmt.Print(param)
+	// 	http.NotFound(w, r)
+	// })
+
 	return nil
 }

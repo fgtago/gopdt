@@ -14,8 +14,6 @@ func (hdr *Handler) Module(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
 	pv := ctx.Value(appsmodel.PageVariableKeyName).(*appsmodel.PageVariable)
 	pv.PageName = modulename
-	pv.Request = r
-	pv.Response = w
 	pv.Form = appsmodel.NewForm(nil)
 	pv.Use(hdr.LoginCheck)
 

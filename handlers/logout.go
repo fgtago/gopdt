@@ -11,8 +11,6 @@ func (hdr *Handler) Logout(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
 	pv := ctx.Value(appsmodel.PageVariableKeyName).(*appsmodel.PageVariable)
 	pv.PageName = "logout"
-	pv.Request = r
-	pv.Response = w
 	pv.Use(hdr.LoginCheck)
 
 	defaulthandlers.SimplePageHandler(pv, w, r)
