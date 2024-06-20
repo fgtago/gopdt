@@ -1,0 +1,37 @@
+/* css form */
+
+
+form label[type="caption"] {
+	font-weight: bold;
+}
+
+form label.errormessage {
+	color: red;
+}
+
+form div.errorbox {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: red;
+	padding: 10px;
+	background-color: rgb(255, 223, 223);
+	border: 1px solid rgb(255, 178, 178);
+	min-width: 300px;
+	max-width: 300px;
+
+}
+
+form input:focus {
+	outline: none;
+	border : 1px solid #666;
+}
+
+form input {
+	border: 1px solid #ccc;
+	padding: 5px;
+}
+
+form input.invalid {
+	border: 1px solid rgb(255, 109, 109);
+	background-color: rgb(255, 182, 182);
+}

@@ -1,0 +1,12 @@
+name: logout  
+title: Logout
+
+
+device:
+  mobile:
+    - logout.html
+  tablet:
+    - logout.html
+  desktop:
+    - logout.html
+        

@@ -14,9 +14,14 @@
 
 
 {{define "pagecontent"}}
-
-	ini content home<br>
-
+	<div>
+	{{if .IsAuthenticated}}
+		Selamat datang, <b>{{.UserFullName}}</b>
+	{{end}}
+	</div>
+	<div>
+		ini content home<br>
+	</div>
 {{end}}
 
 
