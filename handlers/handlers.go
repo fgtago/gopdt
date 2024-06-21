@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/agungdhewe/dwtpl"
@@ -30,7 +31,8 @@ func (hdr *Handler) LoginCheck(pv *appsmodel.PageVariable, pg *dwtpl.PageConfig)
 
 	authenticated = ws.Session.GetBool(ctx, string(appsmodel.IsAuthenticatedKeyName))
 	if pg.Auth && !authenticated {
-		http.Redirect(w, r, "/user/login", http.StatusSeeOther)
+		url := fmt.Sprintf("/user/login?referer=%s", r.URL.Path)
+		http.Redirect(w, r, url, http.StatusSeeOther)
 		return nil
 	}
 

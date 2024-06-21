@@ -1,6 +1,6 @@
 name: receive  
 title: Receive Items
-
+auth: true
 
 device:
   mobile:

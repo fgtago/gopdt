@@ -1,6 +1,6 @@
 name: pricing  
 title: Pricing Label
-
+auth: true
 
 device:
   mobile:

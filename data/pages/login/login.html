@@ -19,6 +19,7 @@
 	<h1>Login</h1>
 	<form method="post" action="/user/login">
 		<input type="hidden" name="csrf_token" value="{{.CsrfToken}}">
+		<input type="hidden" name="referer" value="{{.Data.Referer}}">
 		{{with .Form.Errors.Get "login"}}
 		<div>
 			<div class="errorbox">{{.}}</div>
