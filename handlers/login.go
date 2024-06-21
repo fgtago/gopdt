@@ -12,6 +12,7 @@ type LoginData struct {
 	Email    string
 	Password string
 	Remember bool
+	Referer  string
 }
 
 func (hdr *Handler) Login(w http.ResponseWriter, r *http.Request) {
@@ -37,6 +38,7 @@ func (hdr *Handler) Login(w http.ResponseWriter, r *http.Request) {
 			Email:    r.Form.Get("email"),
 			Password: r.Form.Get("password"),
 			Remember: r.Form.Get("rememberme") == "on",
+			Referer:  r.Form.Get("referer"),
 		}
 
 		form := appsmodel.NewForm(r.PostForm)
@@ -65,7 +67,12 @@ func (hdr *Handler) Login(w http.ResponseWriter, r *http.Request) {
 
 		if authenticated {
 			// login berhasil, redirect ke halaman yang di refer sebelumnya
-			http.Redirect(w, r, "/", http.StatusSeeOther)
+			if data.Referer == "" {
+				http.Redirect(w, r, "/", http.StatusSeeOther)
+			} else {
+				http.Redirect(w, r, data.Referer, http.StatusSeeOther)
+			}
+
 			return
 		} else {
 			form.Errors.Add("login", "email atau password salah")
@@ -85,7 +92,10 @@ func (hdr *Handler) Login(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
-		pv.Data = &LoginData{}
+		referer := r.URL.Query().Get("referer")
+		pv.Data = &LoginData{
+			Referer: referer,
+		}
 		pv.Form = appsmodel.NewForm(nil)
 		pv.PageName = pagename
 		defaulthandlers.SimplePageHandler(pv, w, r)

@@ -10,7 +10,6 @@
 	display: flex;
 	flex-direction: column;
 	padding-top: 50px;
-	position: fixed;
 }
 
 #obj_mainmenu_header {
@@ -69,27 +68,4 @@
 	display: flex;
 	align-items: center;
 	column-gap: 10px;
-}
-
-
-/* responsive */
-
-@media screen and (max-width: 450px) {
-
-}
-
-@media screen and (min-width: 451px) {
-	#obj_mainmenu {
-		right: unset;
-		width: 300px;
-		border-right: 1px solid #ccc;
-		-webkit-box-shadow: 2px 0px 5px 0px rgba(0, 0, 0, 0.3);
-		-moz-box-shadow: 2px 0px 5px 0px rgba(0,0,0,0.3);
-		box-shadow: 2px 0px 5px 0px rgba(0,0,0,0.3);
-	}
-
-	#obj_mainmenu_header {
-		right: unset;
-		width: 280px;
-	}
 }

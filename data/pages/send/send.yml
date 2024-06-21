@@ -1,6 +1,6 @@
 name: send  
 title: Send Items
-
+auth: true
 
 device:
   mobile:

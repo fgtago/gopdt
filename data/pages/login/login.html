@@ -17,8 +17,9 @@
 {{define "pagecontent"}}
 
 	<h1>Login</h1>
-	<form method="post" action="/user/login">
+	<form id="login-form" method="post" action="/user/login" onsubmit="return window.$ui.Submit(this)">
 		<input type="hidden" name="csrf_token" value="{{.CsrfToken}}">
+		<input type="hidden" name="referer" value="{{.Data.Referer}}">
 		{{with .Form.Errors.Get "login"}}
 		<div>
 			<div class="errorbox">{{.}}</div>
@@ -26,7 +27,7 @@
 		{{end}}
 		<div class="form-group">
 			<label for="email" type="caption">Email</label>
-			<input type="text" name="email" id="email" autocomplete="off" validation="email" value="{{.Data.Email}}" class='{{with .Form.Errors.Get "email"}}invalid{{end}}'>
+			<input type="text" name="email" id="login-obj_email" autocomplete="off" validation="email" value="{{.Data.Email}}" class='{{with .Form.Errors.Get "email"}}invalid{{end}}'>
 			{{with .Form.Errors.Get "email"}}
 				<label class="errormessage">{{.}}</label>
 			{{end}}
@@ -34,14 +35,14 @@
 
 		<div class="form-group">
 			<label for="password" type="caption">Password</label>
-			<input type="password" name="password" id="password" autocomplete="off"  class='{{with .Form.Errors.Get "password"}}invalid{{end}}'>
+			<input type="password" name="password" id="login-obj_password" autocomplete="off"  class='{{with .Form.Errors.Get "password"}}invalid{{end}}'>
 			{{with .Form.Errors.Get "password"}}
 				<label class="errormessage">{{.}}</label>
 			{{end}}
 		</div>
 
 		<div>
-			<input type="checkbox" name="rememberme" id="rememberme" value="on">	
+			<input type="checkbox" name="rememberme" id="login-obj_rememberme" value="on">	
 			<label for="rememberme">Remember Me</label>
 		</div>	
 
