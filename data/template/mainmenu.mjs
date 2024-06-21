@@ -5,8 +5,18 @@ const btn_mainmenu_close = document.getElementById('btn_mainmenu_close')
 export async function Init() {
 	console.log("initializing mainmenu module")
 
-	btn_mainmenu_open.addEventListener('click', ()=>{
+
+	window.addEventListener('click', (event)=>{
+		clickOutsideMenu(event)
+	})	
+
+	obj_mainmenu.addEventListener('click', (event)=>{
+		event.stopPropagation()
+	})
+
+	btn_mainmenu_open.addEventListener('click', (event)=>{
 		btn_mainmenu_open_click()
+		event.stopPropagation()
 	})
 
 	btn_mainmenu_close.addEventListener('click', ()=>{
@@ -22,4 +32,9 @@ function btn_mainmenu_close_click() {
 	obj_mainmenu.classList.add('hidden')
 }
 
-
+function clickOutsideMenu(event) {
+	if (!obj_mainmenu.classList.contains('hidden')) {
+		// main menu dibuka, close dulu
+		btn_mainmenu_close_click()
+	}
+}
