@@ -1,0 +1,12 @@
+name: scan  
+title: Scan Items
+auth: true
+
+device:
+  mobile:
+    - scan.html
+  tablet:
+    - scan.html
+  desktop:
+    - scan.html
+        
