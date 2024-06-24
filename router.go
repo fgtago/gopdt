@@ -28,7 +28,7 @@ func Router(mux *chi.Mux) error {
 	fgweb.Get(mux, "/user/account", hnd.Account)
 	fgweb.Get(mux, "/user/logout", hnd.Logout)
 	fgweb.Get(mux, "/user/login", hnd.Login)
-	fgweb.Post(mux, "/user/login", hnd.Login)
+	fgweb.Post(mux, "/user/login", hnd.LoginPost)
 
 	// Standard Module
 	fgweb.Get(mux, "/module/{modulename}", hnd.Module)
