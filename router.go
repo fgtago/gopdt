@@ -16,15 +16,22 @@ func Router(mux *chi.Mux) error {
 
 	hnd := handlers.New(appsmodel.GetWebservice())
 
+	// Home
 	fgweb.Get(mux, "/", hnd.Home)
 	fgweb.Get(mux, "/manifest.json", hnd.Manifest)
-	fgweb.Get(mux, "/module/{modulename}", hnd.Module)
+
+	// Pricing
+	fgweb.Get(mux, "/module/pricing", hnd.Pricing)
+	fgweb.Post(mux, "/module/pricing", hnd.PricingPost)
 
 	// login activity
 	fgweb.Get(mux, "/user/account", hnd.Account)
 	fgweb.Get(mux, "/user/logout", hnd.Logout)
 	fgweb.Get(mux, "/user/login", hnd.Login)
 	fgweb.Post(mux, "/user/login", hnd.Login)
+
+	// Standard Module
+	fgweb.Get(mux, "/module/{modulename}", hnd.Module)
 
 	// fgweb.Get(mux, "/{any:.*}", func(w http.ResponseWriter, r *http.Request) {
 	// 	param := chi.URLParam(r, "any")

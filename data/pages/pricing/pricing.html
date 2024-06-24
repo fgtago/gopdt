@@ -13,8 +13,18 @@
 {{end}}
 
 {{define "pagecontent"}}
-
-	Pricing Label<br>
-
+	<h3>Price Labeling</h3>
+	<div>
+		<form id="pricing-form" method="post" action="/module/pricing" onsubmit="return false">
+			<div>
+				<label for="pricing-obj_site_id">Store</label>
+				<select name="site_id" id="pricing-obj_site_id">
+				</select>
+			</div>
+		</form>
+	</div>
+	<div>
+		<button id="pricing-btn_start">Start</button>
+	</div>
 {{end}}
 
